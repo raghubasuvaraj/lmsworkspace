@@ -1,0 +1,9 @@
+package com.lms.userservice.repository;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.javatechie.spring.mongo.api.model.Book;
+
+public interface UserRepository extends MongoRepository<Users, Integer>{
+
+}

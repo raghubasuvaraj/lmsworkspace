@@ -1,0 +1,48 @@
+package com.lms.userservice.controller;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import io.github.resilience4j.retry.annotation.Retry;
+
+
+@RestController
+public class HelloController {
+
+	@Autowired
+	private HttpServletRequest request;
+
+	@GetMapping("/hello")
+	public String helloWorld() throws Exception {
+
+		return "Hello World1 from server with port : "+ request.getServerPort()
+		;
+	}
+	
+	/*
+	 * Resilence4j circuit breaker pattern with Retry annotation
+	 * 
+	 */
+	
+	@GetMapping("/test")
+	//@Retry(name="default") // This retry will try the method 3 times by default before failing with exception
+	// This is named retry which is configured in the properties file 
+	// Use retry for failures that are temproary
+	@Retry(name="retry-api", fallbackMethod="helloWorldFallbackMethod")
+	// Use circuit breaker for failures that are long lasting and will not recover for a long time
+	//@CircuitBreaker(name="default", fallbackMethod="helloFallback")
+	public String helloWorldWithRetry() throws RuntimeException{
+		System.out.println("Method is called");
+		if(true) throw new RuntimeException();
+		return "Hello World";
+	}
+
+	
+	public String helloWorldFallbackMethod(Exception e) {
+		return "This is fallback response";
+	}
+}

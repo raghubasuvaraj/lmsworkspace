@@ -1,0 +1,17 @@
+eclipse.preferences.version=1
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.cloud-eureka=2
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.data-jpa=12
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.web=12
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.web-services=28
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.artifactId=certification-service
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.bootVersion=2.6.4
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.description=Certification Service
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.groupId=com.lms
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.javaVersion=11
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.language=java
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.name=certification-service
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.packageName=com.lms.certificationservice
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.packaging=jar
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.type=MAVEN
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.version=0.0.1
+org.springframework.ide.eclipse.boot.wizard.initializr.url=https\://start.spring.io\n
