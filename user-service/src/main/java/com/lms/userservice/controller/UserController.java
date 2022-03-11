@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lms.userservice.entity.Users;
 import com.lms.userservice.repository.UserRepository;
+import com.lms.userservice.service.NextSequenceService;
 
 
 
@@ -24,12 +25,17 @@ public class UserController {
 
 	@Autowired
 	private UserRepository repository;
+	
+	
+	@Autowired
+	private NextSequenceService nextSequenceService;
 
 	@PostMapping("/save")
 	public String saveuser(@RequestBody Users user) {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String encodedPassword = passwordEncoder.encode(user.getPassword());
 		user.setPassword(encodedPassword);
+		user.setId(nextSequenceService.getNextSequence("customSequences"));
 		repository.save(user);
 		return "Added user with id : " + user.getId();
 	}

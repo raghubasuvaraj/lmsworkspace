@@ -13,11 +13,11 @@ import lombok.ToString;
 @Setter
 @ToString
 
-@Document(collection = "users")
-public class Users {
-	@Id
-	private BigDecimal id;
-	private String username;
-	private String password;
+@Document(collection = "customSequences")
+public class CustomSequences {
+	
+	 @Id
+	 private String id;
+	 private BigDecimal seq;
 
 }
